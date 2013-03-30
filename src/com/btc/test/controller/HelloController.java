@@ -14,6 +14,6 @@ public class HelloController {
  
     @RequestMapping("/hello")
     public void test(HttpServletResponse response) throws IOException {
-        response.getWriter().write("Hi, u guy.");
+        response.getWriter().write("Hi, springmvc!");
     }
 }

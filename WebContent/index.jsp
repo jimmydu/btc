@@ -8,6 +8,7 @@
 </head>
 <body>
 Hello Jimmy!
-<a href="/hello">hello</a>
+<a href="hello">hello</a>
+<input onblur="alert('onblur');"/>
 </body>
 </html>
