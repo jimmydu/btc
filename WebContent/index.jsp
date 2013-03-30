@@ -8,5 +8,6 @@
 </head>
 <body>
 Hello Jimmy!
+<a href="/hello">hello</a>
 </body>
 </html>
