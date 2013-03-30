@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.btc.test.controller")
-public class DispatcherConfig {
+public class MvcConfig {
 
 	
 	@Bean
