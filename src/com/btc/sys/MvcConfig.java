@@ -8,15 +8,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.btc.test.controller")
+@ComponentScan(basePackages = "com.btc.test")
 public class MvcConfig {
 
 	
 	@Bean
-	public InternalResourceViewResolver configureInternalResourceViewResolver() {
+	public InternalResourceViewResolver configInternalResourceViewResolver() {
 		System.out.println(InternalResourceViewResolver.class.getName());
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setPrefix("/views/");
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
