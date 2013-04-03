@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.btc.test")
+@ComponentScan(basePackages = "com.btc")
 public class MvcConfig {
 
 	

@@ -20,10 +20,10 @@
 
 			<c:forEach var="item" items="${userList}">
 				<tr>
-					<td>${item.id}</td>
+					<td>${item.userid}</td>
 					<td>${item.name}</td>
 					<td>${item.age}</td>
-					<td>${item.gender}</td>
+					<td>${item.sex}</td>
 				</tr>
 			</c:forEach>
 		</table>

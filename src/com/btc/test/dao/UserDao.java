@@ -50,7 +50,16 @@ public class UserDao {
 		return userList;
 	}
 	
+	
 	public List<User> selectUser() {
+		Session session = this.getSessionFactory().openSession();
+		session.beginTransaction();
+		List<User> rs = session.createQuery("from User").list();
+		session.getTransaction().commit();
+		session.close();
+		return rs;
+	}
+	/*public List<User> selectUser() {
 		Session session = this.getSessionFactory().openSession();
 		session.beginTransaction();
 		List<Object[]> rs = session.createSQLQuery("select * from test.user").list();
@@ -74,5 +83,5 @@ public class UserDao {
 		session.getTransaction().commit();
 		session.close();
 		return userList;
-	}
+	}*/
 }

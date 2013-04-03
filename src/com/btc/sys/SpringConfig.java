@@ -28,6 +28,8 @@ public class SpringConfig {
 
 		org.hibernate.cfg.Configuration cfg = new org.hibernate.cfg.Configuration();
 		cfg.setProperties(hibernateProperties);
+		cfg.addAnnotatedClass(com.btc.trade.entity.Trade.class);
+		cfg.addAnnotatedClass(com.btc.trade.entity.User.class);
 		return cfg.buildSessionFactory();
 	}
 
