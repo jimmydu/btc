@@ -27,27 +27,10 @@ public class UserDao {
 	public List<User> selectUser(String userID) {
 		Session session = this.getSessionFactory().openSession();
 		session.beginTransaction();
-		List<Object[]> rs = session.createSQLQuery("select * from test.user where id="+userID).list();
-		List<User> userList = new ArrayList<User>();
-		if(rs.size() >0) {
-			for(Object[] obj: rs) {
-				String idString = obj[0].toString();
-				String nameString = obj[1].toString();
-				Integer age = (Integer) obj[2];
-				String genderString = obj[3].toString();
-				User user = new User();
-				user.setAge(age);
-				user.setGender(genderString);
-				user.setId(idString);
-				user.setName(nameString);
-				userList.add(user);
-				System.out.println(user);
-			}
-			
-		}
+		List<User> rs = session.createQuery("from User where id="+userID).list();
 		session.getTransaction().commit();
 		session.close();
-		return userList;
+		return rs;
 	}
 	
 	
