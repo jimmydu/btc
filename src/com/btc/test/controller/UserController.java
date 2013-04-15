@@ -46,7 +46,6 @@ public class UserController {
 		
 		mav.addObject("userList", rs);
 		
-		System.out.println("getUser("+userID+");");
 		return mav;
 	}
 

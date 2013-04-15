@@ -9,20 +9,21 @@
 <title>market</title>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
 
 </head>
 <body>
 
 	${msg}
-	<div align="center">
-		<form id="bid_form" action="doBiz">
-			<select name='type'>
+	<div style="margin-left:300px">
+		<form id="bid_form" action="doBiz" method="post">
+			<select name='type' >
 				<option value="buy" selected="selected">buy</option>
 				<option value="sell">sell</option>
-			</select><br> <br>price: <input name="price" type="text" /> <br> <br>
-			quantity: <input name="qty" type="text" /> <br> <input
-				type="button" value="ok" onclick="submitForm();">
-			<input type="button" value="reset" onclick="reset();">
+			</select>&nbsp;price: <input name="price" type="text" />
+			quantity: <input name="qty" type="text" /> <br><br> <input
+				type="submit" value="ok" onclick="return checkForm();"> <input
+				type="button" value="reset" onclick="reset();">
 		</form>
 	</div>
 
@@ -30,11 +31,26 @@
 		function reset() {
 			$("input").val('');
 		}
-		function submitForm() {
-			if($("input[name='price']").val() == '' || $("input[name='qty']").val() == '')
+		
+		setInterval("fetchTradeStatus()", 5000);
+		function fetchTradeStatus() {
+			//alert('Should fetch status from Trade table...');
+		}
+		$(document).ready(function() {
+			$("#bid_form").ajaxForm(function(data) {
+				alert(data);
+			});
+		});
+		function checkForm() {
+			if ($("input[name='price']").val() == ''
+					|| $("input[name='qty']").val() == '') {
+				
 				alert("invalid input");
-			else 
-				$("#bid_form").submit();
+				return false;
+			}
+			else {
+				return true;	
+			}
 		}
 	</script>
 	<table border="1">

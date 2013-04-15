@@ -1,6 +1,9 @@
 package com.btc.trade.dao;
 
+import com.btc.trade.entity.Trade;
+
 public interface MarketDao {
 
-	public String makeDeal(String initiator);
+	public String tryToMakeDeal(Trade oppo);
+	
 }
