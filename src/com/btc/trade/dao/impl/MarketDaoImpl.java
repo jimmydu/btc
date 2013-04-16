@@ -70,10 +70,28 @@ public class MarketDaoImpl implements MarketDao{
 		} else {
 			//fail, we need to store the bid/offer for future
 			session.save(oppo);
+			resulString = "No suitable buyer/seller, will wait for future opportunity.";
 		}
 		session.getTransaction().commit();
 		session.close();
 		return resulString;
+	}
+
+	@Override
+	public List<Trade> getAllTradeData() {
+		Session session = this.sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
+		List<Trade> trades =  session.createQuery("from Trade").list();
+		session.close();
+		return trades;
+	}
+
+	@Override
+	public String deleteAllTradeData() {
+		Session session = this.sessionFactory.openSession();
+		int rs =  session.createQuery("delete from Trade").executeUpdate();
+		session.close();
+		return rs+" rows deleted.";
 	}
 
 }

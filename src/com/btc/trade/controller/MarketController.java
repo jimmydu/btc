@@ -1,6 +1,7 @@
 package com.btc.trade.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +23,7 @@ public class MarketController {
 
 	@Autowired
 	MarketDao marketDao;
-	
+
 	@RequestMapping(value = "/goMarket", method = RequestMethod.GET)
 	public String goMarket(Model model) {
 		model.addAttribute("msg", "jimmy's msg");
@@ -51,8 +52,20 @@ public class MarketController {
 			newOppo.setQty(Float.valueOf(qty));
 			newOppo.setBidtime(new Date());
 		}
-		
+
 		return marketDao.tryToMakeDeal(newOppo);
+	}
+
+	@RequestMapping(value = "/getMarketState", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Trade> getMarketState() {
+		return marketDao.getAllTradeData();
+	}
+	
+	@RequestMapping(value = "/clearMarket", method = RequestMethod.GET)
+	@ResponseBody
+	public String clearMarket() {
+		return marketDao.deleteAllTradeData();
 	}
 
 	public MarketDao getMarketDao() {

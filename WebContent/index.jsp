@@ -13,6 +13,8 @@
 	<br> Input user ID:
 	<input id="userID" type="text"/>
 	<input type="button" value="get User" onclick="getUser();">
+	<br>
+	<a href="goMarket" >goMarket</a>
 	<script type="text/javascript">
 		function getUser() {
 			window.location.href='getUser?userID='+$("#userID").val();
