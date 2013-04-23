@@ -22,6 +22,7 @@ public class SpringConfig {
 				"org.hibernate.dialect.MySQL5Dialect");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		hibernateProperties.setProperty("hibernate.format_sql", "true");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.connection.datasource",
 				"java:/comp/env/db/mysql");
 		// hibernateProperties.setProperty("", "");
