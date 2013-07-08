@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="btc">
+    <wb-module deploy-name="waikuai">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="btc"/>
-        <property name="java-output-path" value="/btc/build/classes"/>
+        <property name="java-output-path" value="/waikuai/build/classes"/>
+        <property name="context-root" value="waikuai"/>
     </wb-module>
 </project-modules>
